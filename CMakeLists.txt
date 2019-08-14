@@ -1,0 +1,33 @@
+cmake_minimum_required(VERSION 3.0.2)
+project(fighting-card)
+
+# 定义 __FILENAME__ 宏，相对路径，仅仅在 GCC 编译器 上有效
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__FILENAME__='\"$(subst ${CMAKE_CURRENT_SOURCE_DIR}/,,$(abspath $<))\"'")
+
+# 禁止 C++ assert terminate 程序
+#ADD_DEFINITIONS(-DNDEBUG)
+
+# ASIO 不使用 Boost 库
+ADD_DEFINITIONS(-DASIO_STANDALONE)
+
+# Spdlog 使用外部 Fmt 库
+ADD_DEFINITIONS(-DSPDLOG_FMT_EXTERNAL)
+
+# Jwt-cpp 使用外部 Json 库
+ADD_DEFINITIONS(-DJWT_CPP_JSON_EXTERNAL)
+
+# 生成编译命令文件，给 YCM 使用
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+ADD_COMPILE_OPTIONS(-g -std=c++17)
+
+set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib)
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
+
+LINK_DIRECTORIES(${CMAKE_BINARY_DIR}/lib)
+
+ADD_SUBDIRECTORY(opt)
+ADD_SUBDIRECTORY(common)
+ADD_SUBDIRECTORY(msg)
+ADD_SUBDIRECTORY(server)
+ADD_SUBDIRECTORY(client)

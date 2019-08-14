@@ -1,0 +1,18 @@
+<?xml version="1.0" enconding="UTF-8"?>
+<gameclient id="1" thread="4">
+  <log>
+    <name>gameclient</name>
+    <path>log/gameclient.log</path>
+    <level>trace</level>
+    <flush>info</flush>
+    <thread>1</thread>
+  </log>
+  <users_info>
+    <appid>123456</appid>
+    <zone>1</zone>
+    <uid_from>1</uid_from>
+    <uid_to>10</uid_to>
+  </users_info>
+  <gameserver ip="127.0.0.1" port="1237" />
+  <queueserver ip="127.0.0.1" port="1234" />
+</gameclient>

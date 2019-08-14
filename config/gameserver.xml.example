@@ -1,0 +1,16 @@
+<?xml version="1.0" enconding="UTF-8"?>
+<gameserver id="1" ip="0.0.0.0" port="1237" thread="4">
+  <log>
+    <name>gameserver</name>
+    <path>log/gameserver.log</path>
+    <level>trace</level>
+    <flush>info</flush>
+    <thread>1</thread>
+  </log>
+  <sdk>
+    <url>http://127.0.0.1:1236/v1</url>
+    <appid>123456</appid>
+    <zone>1</zone>
+    <count>10</count>
+  </sdk>
+</gameserver>

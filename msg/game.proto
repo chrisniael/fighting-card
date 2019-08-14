@@ -1,0 +1,28 @@
+syntax = "proto2";
+
+package game;
+
+enum LoginType {
+  kLoginTypeNormal = 0;
+  kLoginTypeQueued = 1;
+}
+
+enum LoginRes {
+  kLoginResSuccess = 0;
+  kLoginResQueue = 1;
+  kLoginResError = 2;
+  kLoginResLogined = 3;
+}
+
+message LoginReq {
+  optional LoginType type = 1;
+  optional string uid = 2;
+  optional string token = 3;
+}
+
+message LoginRsp {
+  optional LoginRes result = 1;
+  optional string token = 2;
+}
+
+message Ping {}
